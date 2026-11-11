@@ -11,9 +11,8 @@ export function useTheme() {
       return saved;
     }
 
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+    // Default theme for new visitors
+    return "light";
   });
 
   useEffect(() => {
@@ -22,7 +21,9 @@ export function useTheme() {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((current) => current === "light" ? "dark" : "light");
+    setTheme((current) =>
+      current === "light" ? "dark" : "light"
+    );
   };
 
   return { theme, toggleTheme };
