@@ -1,0 +1,205 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+  --font-heading: "Manrope", sans-serif;
+
+  --color-warm-cream: #FFF9EF;
+  --color-forest-green: #194C3B;
+  --color-fresh-green: #36B58C;
+  --color-soft-sage: #E7F0DE;
+  --color-soft-peach: #F9E5D0;
+  --color-dark-text: #23372D;
+  --color-muted-green: #7D8E81;
+}
+
+/* =================================
+   LIGHT THEME
+================================= */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-primary: #FFF9EF;
+  --bg-secondary: #FFFCF5;
+  --bg-tertiary: #F4F3E8;
+  --bg-card: #FFFFFF;
+
+  --text-primary: #194C3B;
+  --text-secondary: #52685A;
+  --text-muted: #87948A;
+
+  --accent: #36B58C;
+  --accent-hover: #269B76;
+
+  --surface-sage: #E7F0DE;
+  --surface-peach: #F9E5D0;
+
+  --border: #E7EBDD;
+  --shadow: 0 12px 35px rgba(25, 76, 59, 0.08);
+
+  --nav-bg: rgba(255, 249, 239, 0.88);
+
+    --hero-overlay-start: rgba(255, 249, 239, 0.97);
+  --hero-overlay-middle: rgba(255, 249, 239, 0.88);
+  --hero-overlay-end: rgba(255, 249, 239, 0);
+  --hero-heading: #194C3B;
+  --hero-description: #52685A;
+}
+
+/* =================================
+   DARK THEME
+================================= */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-primary: #101A16;
+  --bg-secondary: #15231D;
+  --bg-tertiary: #1B2B23;
+  --bg-card: #1C2B24;
+
+  --text-primary: #E6F1E8;
+  --text-secondary: #C1D0C4;
+  --text-muted: #91A497;
+
+  --accent: #49C99B;
+  --accent-hover: #62D9AD;
+
+  --surface-sage: #253D30;
+  --surface-peach: #45362A;
+
+  --border: #304638;
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+
+  --nav-bg: rgba(16, 26, 22, 0.90);
+
+    --hero-overlay-start: rgba(16, 26, 22, 0.96);
+  --hero-overlay-middle: rgba(16, 26, 22, 0.82);
+  --hero-overlay-end: rgba(16, 26, 22, 0);
+  --hero-heading: #E6F1E8;
+  --hero-description: #C1D0C4;
+}
+
+/* =================================
+   GLOBAL RESET
+================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background: var(--bg-primary);
+  color: var(--text-primary);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
+}
+
+/* =================================
+   TYPOGRAPHY
+================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Manrope", sans-serif;
+  color: var(--text-primary);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
+p {
+  line-height: 1.75;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =================================
+   SELECTION & SCROLLBAR
+================================= */
+
+::selection {
+  background: var(--accent);
+  color: #FFFFFF;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-sage);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* =================================
+   ACCESSIBILITY
+================================= */
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.footer-link {
+  @apply text-sm font-semibold text-[var(--text-secondary)] transition-colors hover:text-[var(--accent)];
+}
